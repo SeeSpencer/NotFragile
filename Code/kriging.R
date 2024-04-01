@@ -7,6 +7,7 @@ library("stars")   # spatial-temporal data
 library("terra")   # raster data handling 
 library("ggplot2") # plotting
 library("dplyr")
+library(RColorBrewer)
 
 # https://pages.cms.hu-berlin.de/EOL/gcg_quantitative-methods/Lab14_Kriging.html
 
@@ -34,4 +35,17 @@ crs(ptsSF)
 
 
 mapview(ptsSF)
+
+#####################
+
+ptsV<-vect(ptsSF)
+plot_sf(ptsV)
+
+
+
+#checking if spatVect works with mapview
+mapview(ptsV, z.col="TrueTopo", col.regions=brewer.pal(5, "YlGn"))
+#it does
+
+
 
